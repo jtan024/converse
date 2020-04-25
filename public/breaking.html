@@ -57,7 +57,7 @@
             <!-- Brand -->
             <a class="navbar-brand pt-0" href="./index.html">
                 <b>
-                    <font style="font-size: 4vw;" color="#fb6340">Converse<font color="#f4f5f7"></font></font>
+                    <font style="font-size: 4vw;" color="#fb6340">Converse<font color="#f4f5f7"></font>
                 </b>
             </a>
 
@@ -87,24 +87,28 @@
         </div>
 
         <div class="container">
-            <h1>News finder</h1>
-    
-            <form id="js-form">
-                <label for="search-term">Search term</label>
-                <input type="text" name="search-term" id="js-search-term" value="covid" required>
-    
-                <label for="max-results">Maximum results to return</label>
-                <input type="number" name="max-results" id="js-max-results" value="10">
-    
-                <input type="submit" value="Go!">
-            </form>
-    
-            <p id="js-error-message" class="error-message"></p>
-            <section id="results" class="hidden">
-              <h2>Search results</h2>
-              <ul id="results-list">
-              </ul>
-            </section>
+            <div class="form-group">
+                <h1>News finder</h1>
+
+                <form id="js-form">
+                    <label for="search-term">Search term</label>
+                    <input type="text" name="search-term" id="js-search-term" value="covid" required>
+
+                    <label for="max-results">Maximum results to return</label>
+                    <input type="number" name="max-results" id="js-max-results" value="10">
+
+                    <button type="submit" class="btn-btn-success">Go!</button>
+                </form>
+
+                <p id="js-error-message" class="error-message"></p>
+                <section id="results" class="hidden">
+                    <h2>Search results</h2>
+                    <li>
+                        <ul id="results-list">
+                        </ul>
+                    </li>
+                </section>
+            </div>
         </div>
         <!-- Footer -->
         <footer class="footer">
