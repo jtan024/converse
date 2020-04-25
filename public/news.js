@@ -14,20 +14,19 @@ function formatQueryParams(params) {
 function displayResults(responseJson, maxResults) {
   // if there are previous results, remove them
   console.log(responseJson);
-  $("#results-list").empty();
+  $("#news-ticker").empty();
   // iterate through the articles array, stopping at the max number of results
   for (let i = 0; (i < responseJson.articles.length) & (i < maxResults); i++) {
     // for each video object in the articles
     //array, add a list item to the results
     //list with the article title, source, author,
     //description, and image
-    $("#results-list").append(
-      `<li><h3><a href="${responseJson.articles[i].url}">${responseJson.articles[i].title}</a></h3>
-      <p>${responseJson.articles[i].source.name}</p>
-      <p>By ${responseJson.articles[i].author}</p>
-      <p>${responseJson.articles[i].description}</p>
-      <img src='${responseJson.articles[i].urlToImage}'>
-      </li>`
+    $("#news-ticker").append(
+      `<div class="ticker-item"><a href="${responseJson.articles[i].url}" target="__blank">${responseJson.articles[i].title}</a>    
+      via ${responseJson.articles[i].source.name}</div>
+      
+     
+      `
     );
   }
   //display the results section

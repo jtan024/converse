@@ -20,6 +20,7 @@
   <!-- Argon CSS -->
   <link type="text/css" href="css/argon.min.css?v=1.0.0" rel="stylesheet" />
   <link ref="breaking-news-ticker.css" rel="stylesheet"/>
+  <link rel="stylesheet" type="text/css" href="css/ticker.css">
   <!-- CountUp.js -->
   <script src="./js/countUp.min.js" type="module"></script>
   <script src="./news.js"></script>
@@ -224,7 +225,11 @@
     <!-- Header -->
 
     <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
-      <marquee>This is basic example of marquee</marquee>
+      <div class="tcontainer"><div class="ticker-wrap"><div class="ticker-move">
+        <div id='news-ticker'>
+       
+        </div>
+      </div></div></div>
       <div class="container-fluid">
         <div class="header-body">
           <!-- Card stats -->
