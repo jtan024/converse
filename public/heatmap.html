@@ -256,14 +256,6 @@
 
                     heatmapLayer.setData(testData);
 
-                    /*  var baseLayer = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-                      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-                      maxZoom: 18,
-                      id: 'mapbox.satellite',
-                      accessToken: 'pk.eyJ1IjoieWFzaGphaXN3YWwxIiwiYSI6ImNrMXVqcWZsaTB4OGQzYmthbHI1bXQ3dWoifQ.yI_Z7RUmBhSC9mti6naJhA'
-                    }).addTo(mymap);
-                    */
-
                     getLocation();
 
                     function getLocation() {
@@ -288,39 +280,7 @@
 
                 </script>
             </div>
-        </div>
-        <script>
-            function topProd() {
-                switch (document.getElementById("region").value) {
-                    case '1':
-                        document.getElementById("top").innerText = ': Corporate Finance';
-                        console.log("A");
-                        break;
-                    case '2':
-                        document.getElementById("top").innerText = ': Retail Loans';
-                        console.log("B");
-                        break;
-                    case '3':
-                        document.getElementById("top").innerText = ': Agricultural Loans';
-                        break;
-                    case '4':
-                        document.getElementById("top").innerText = ': Term (Fixed) Deposit';
-                        break;
-                    case '5':
-                        document.getElementById("top").innerText = ': SME Loans';
-                        break;
-                    case '6':
-                        document.getElementById("top").innerText = ': Priority Sector Loans';
-                        break;
-                    case '7':
-                        document.getElementById("top").innerText = ': Current/Saving Account (CASA)';
-                        break;
-                    case '8':
-                        document.getElementById("top").innerText = ': Educational Loans';
-                        break;
-                }
-            }
-        </script>
+        </div>s
     </div>
 
     <br>
