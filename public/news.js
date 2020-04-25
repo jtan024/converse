@@ -64,12 +64,9 @@ function getNews(query, maxResults = 10) {
 }
 
 function watchForm() {
-  $("form").submit((event) => {
-    event.preventDefault();
-    const searchTerm = $("#js-search-term").val();
-    const maxResults = $("#js-max-results").val();
-    getNews(searchTerm, maxResults);
-  });
+  const searchTerm = "covid";
+  const maxResults = 10;
+  getNews(searchTerm, maxResults);
 }
 
 $(watchForm);
