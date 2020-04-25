@@ -3,6 +3,24 @@ const VoiceResponse = require('twilio').twiml.VoiceResponse;
 
 const app = express();
 
+// Firebase
+
+var admin = require("firebase-admin");
+
+var serviceAccount = require("./converse-hacknow-a6513-firebase-adminsdk-im6cm-9b7d8528e9");
+
+admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount),
+    databaseURL: "https://converse-hacknow-a6513.firebaseio.com"
+});
+
+var db = admin.database();
+var ref = db.ref("restricted_access/secret_document");
+ref.once("value", function(snapshot) {
+    console.log(snapshot.val());
+});
+
+
 // Create a route that will handle Twilio webhook requests, sent as an
 // HTTP POST to /voice in our application
 app.post('/voice', (request, response) => {
