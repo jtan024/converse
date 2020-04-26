@@ -163,12 +163,10 @@
         <ul class="navbar-nav mb-md-3">
           <li class="nav-item">
             <a class="nav-link" href="./contactUs.html">
-              
-              <i class="ni ni-chat-round"></i> Contact Us
+              <i class="ni ni-palette"></i> Contact Us
             </a>
             <a class="nav-link" href="./breaking.html">
-        
-              <i class="ni ni-world-2"></i> News
+              <i class="ni ni-worldç"></i> Breaking News
             </a>
         </ul>
       </div>
@@ -354,20 +352,30 @@
                 </div>
               </div>
             </div>
-            <div class="card-body">
+                        <div class="card-body">
               <!-- Chart -->
-              <div>                <!-- <button onclick="toggleTest()">Toggle Firebase</button>
+              <div>
+
+
+
+                <!-- <button onclick="toggleTest()">Toggle Firebase</button>
                 <script>
                   function toggleTest(){
                     var firebaseRef = firebase.database().ref().child("Test").set(1);
                   }
-                </script> -->                <canvas id="myChart"></canvas>
+                </script> -->
+
+                <canvas id="myChart"></canvas>
               </div>
                                 <!-- Firebase -->
  <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="/__/firebase/7.14.2/firebase-app.js"></script><!-- TODO: Add SDKs for Firebase products that you want to use
+<script src="/__/firebase/7.14.2/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="/__/firebase/7.14.2/firebase-database.js"></script><!-- Initialize Firebase -->
+<script src="/__/firebase/7.14.2/firebase-database.js"></script>
+
+<!-- Initialize Firebase -->
 <script src="/__/firebase/init.js"></script>
 <script src="./index.js"></script>
               <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
@@ -376,7 +384,9 @@
                 var ctx = document.getElementById("myChart").getContext("2d");
                 var chartA = new Chart(ctx, {
                   // The type of chart we want to create
-                  type: "line",                  // The data for our dataset
+                  type: "line",
+
+                  // The data for our dataset
                   data: {
                     labels: [
                       "Week 1",
@@ -396,7 +406,9 @@
                         data: calls_april
                       }
                     ]
-                  },                  // Configuration options go here
+                  },
+
+                  // Configuration options go here
                   options: {
                     legend: {
                       display: true,
@@ -410,30 +422,46 @@
                       intersect: false,
                       custom: function (model) {
                         // Get tooltip
-                        var $tooltip = $("#chart-tooltip");                        // Create tooltip on first render
+                        var $tooltip = $("#chart-tooltip");
+
+                        // Create tooltip on first render
                         if (!$tooltip.length) {
                           $tooltip = $(
                             '<div id="chart-tooltip" class="popover bs-popover-top" role="tooltip"></div>'
-                          );                          // Append to body
+                          );
+
+                          // Append to body
                           $("body").append($tooltip);
-                        }                        // Hide if no tooltip
+                        }
+
+                        // Hide if no tooltip
                         if (model.opacity === 0) {
                           $tooltip.css("display", "none");
                           return;
-                        }                        function getBody(bodyItem) {
+                        }
+
+                        function getBody(bodyItem) {
                           return bodyItem.lines;
-                        }                        // Fill with content
+                        }
+
+                        // Fill with content
                         if (model.body) {
                           var titleLines = model.title || [];
                           var bodyLines = model.body.map(getBody);
-                          var html = "";                          // Add arrow
-                          html += '<div class="arrow"></div>';                          // Add header
+                          var html = "";
+
+                          // Add arrow
+                          html += '<div class="arrow"></div>';
+
+                          // Add header
                           titleLines.forEach(function (title) {
                             html +=
                               '<h3 class="popover-header text-center">' +
                               title +
                               "</h3>";
-                          });                          // Add body
+                          });
+
+                          // Add body
                           bodyLines.forEach(function (body, i) {
                             var colors = model.labelColors[i];
                             var styles =
@@ -451,15 +479,29 @@
                               indicator +
                               body +
                               "</div>";
-                          });                          $tooltip.html(html);
-                        }                        // Get tooltip position
-                        var $canvas = $(this._chart.canvas);                        var canvasWidth = $canvas.outerWidth();
-                        var canvasHeight = $canvas.outerHeight();                        var canvasTop = $canvas.offset().top;
-                        var canvasLeft = $canvas.offset().left;                        var tooltipWidth = $tooltip.outerWidth();
-                        var tooltipHeight = $tooltip.outerHeight();                        var top =
+                          });
+
+                          $tooltip.html(html);
+                        }
+
+                        // Get tooltip position
+                        var $canvas = $(this._chart.canvas);
+
+                        var canvasWidth = $canvas.outerWidth();
+                        var canvasHeight = $canvas.outerHeight();
+
+                        var canvasTop = $canvas.offset().top;
+                        var canvasLeft = $canvas.offset().left;
+
+                        var tooltipWidth = $tooltip.outerWidth();
+                        var tooltipHeight = $tooltip.outerHeight();
+
+                        var top =
                           canvasTop + model.caretY - tooltipHeight - 16;
                         var left =
-                          canvasLeft + model.caretX - tooltipWidth / 2;                        // Display tooltip
+                          canvasLeft + model.caretX - tooltipWidth / 2;
+
+                        // Display tooltip
                         $tooltip.css({
                           top: top + "px",
                           left: left + "px",
@@ -472,12 +514,16 @@
                           var label =
                             data.datasets[item.datasetIndex].label || "";
                           var yLabel = item.yLabel;
-                          var content = "";                          if (data.datasets.length > 1) {
+                          var content = "";
+
+                          if (data.datasets.length > 1) {
                             content +=
                               '<span class="badge badge-primary mr-auto">' +
                               label +
                               "</span>";
-                          }                          content +=
+                          }
+
+                          content +=
                             '<span class="popover-body-value">' +
                             yLabel +
                             "</span>";
@@ -486,14 +532,25 @@
                       }
                     }
                   }
-                });                                var firebaseRef = firebase.database().ref();
-                                                // // firebaseRef.child("Test").set("Working1");                                                 var callfreq = firebaseRef.child("Calls");
+                });
+
+    
+                                                 var firebaseRef = firebase.database().ref();
+                                                // // firebaseRef.child("Test").set("Working1");
+                                                //pointer123
+
+                                                 var callfreq = firebaseRef.child("Calls");
                                                  callfreq.on('value', function(snapshot){
                                                          console.log(snapshot.val());
                                                          calls_april[3] += 1;
                                                          chartA.data.datasets[1].data = calls_april;
                                                          chartA.update(); 
-                                                     });              </script>            </div>
+                                                     });
+
+              </script>
+
+            </div>
+
           </div>
           <br>
 
@@ -761,10 +818,10 @@
                       <form>
                         <div class="row">
                           <div class="col-sm-7">
-                            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">
+                            <button type="button" class="btn btn-primary btn-sm">
                               See More
                             </button>
-                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                               <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
                                   <div class="modal-header">
@@ -783,7 +840,7 @@
                                   </div>
                                 </div>
                               </div>
-                            </div>
+                            </div> -->
                           </div>
                         </div>
                       </form>
@@ -812,11 +869,86 @@
                       </form>
                     </td>
                   </tr>
+                  <tr>
+                    <th scope="row" id="snum">
+                      
+                    </th>
+                    <td id="user_name">
+                      <!-- Rishina Sharma -->
+                    </td>
+                    <td id="product_type">
+                      <!-- Toiletries -->
+                    </td>
+                    <td id="product_priority">
+                      <!-- <i class="fas fa-arrow-up text-info mr-3"></i> Low -->
+                    </td>
+                    <td>
+                      <form>
+                        <div class="row">
+                          <div class="col-sm-7">
+                            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal">See More</button>
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">User Details</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                  </div>
+                                  <div class="modal-body">
+                                    <b>Product: </b><font id="product_name">bhjbhj</font> <br>
+                                    <b>Quantity: </b><font id="product_quantity">vfhgfh</font><br>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </td>
+                  </tr>
                 </tbody>
               </table>
             </div>
           </div>
         </div>
+        <script>
+                                                var firebaseRef1 = firebase.database().ref().child("Person1").child("supplyreq");
+                                                // // firebaseRef.child("Test").set("Working1");
+                                                //pointer123
+
+                                                //  var callfreq = firebaseRef1.child("Calls");
+                                                // var nameref = firebaseRef1.child("name");
+                                                // var priority = firebaseRef1.child("priority");
+                                                // var nameref = firebaseRef1.child("name");
+                                                //  firebaseRef1.on('value', function(snapshot){
+                                                //          console.log("TABLE SNAPSHOT");
+                                                //          console.log(snapshot.val());
+                                                //          console.log(".name()");
+                                                //          console.log(snapshot.val().name());
+                                                //          console.log(".name");
+                                                //          console.log(snapshot.val().name);
+                                                //      });
+                                                firebaseRef1.child("name").on('value', function(snapshot){
+                                                  document.getElementById("user_name").innerHTML = snapshot.val();
+                                                });
+                                                firebaseRef1.child("type").on('value', function(snapshot){
+                                                  document.getElementById("product_type").innerHTML = snapshot.val();
+                                                });
+                                                firebaseRef1.child("priority").on('value', function(snapshot){
+                                                  document.getElementById("product_priority").innerHTML = snapshot.val();
+                                                });
+                                                firebaseRef1.child("product").on('value', function(snapshot){
+                                                  document.getElementById("product_name").innerHTML = snapshot.val();
+                                                });
+                                                firebaseRef1.child("quantity").on('value', function(snapshot){
+                                                  document.getElementById("product_quantity").innerHTML = snapshot.val();
+                                                });
+        </script>
         <div class="col-xl-4">
           <div class="card shadow">
             <div class="card-header border-0">
@@ -996,7 +1128,7 @@
         <div class="col-xl-6">
           <div class="copyright text-center text-xl-left text-muted">
             &nbsp; An integrated platform for
-            <a href="https://hacknow.calhacks.io/" class="font-weight-bold ml-1" target="_blank">Hack:now Hackathon</a>
+            <a href="#" class="font-weight-bold ml-1" target="_blank">HackCovid Hackathon</a>
           </div>
         </div>
         <div class="col-xl-6">
@@ -1062,17 +1194,6 @@
   </div>
   </div>
 
-     <!-- Firebase -->
- <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="/__/firebase/7.14.2/firebase-app.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="/__/firebase/7.14.2/firebase-database.js"></script>
-
-<!-- Initialize Firebase -->
-<script src="/__/firebase/init.js"></script>
-<script src="./index.js"></script>
   <!-- Core -->
   <script src="vendor/jquery/dist/jquery.min.js"></script>
   <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
