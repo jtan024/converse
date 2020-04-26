@@ -354,54 +354,47 @@
             </div>
             <div class="card-body">
               <!-- Chart -->
-              <div>
-
-
-
-                <!-- <button onclick="toggleTest()">Toggle Firebase</button>
+              <div>                <!-- <button onclick="toggleTest()">Toggle Firebase</button>
                 <script>
                   function toggleTest(){
                     var firebaseRef = firebase.database().ref().child("Test").set(1);
                   }
-                </script> -->
-
-                <canvas id="myChart"></canvas>
+                </script> -->                <canvas id="myChart"></canvas>
               </div>
+                                <!-- Firebase -->
+ <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/7.14.2/firebase-app.js"></script><!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="/__/firebase/7.14.2/firebase-database.js"></script><!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
+<script src="./index.js"></script>
               <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
               <script>
+                var calls_april = [4, 3, 3, 0];
                 var ctx = document.getElementById("myChart").getContext("2d");
-                var chart = new Chart(ctx, {
+                var chartA = new Chart(ctx, {
                   // The type of chart we want to create
-                  type: "line",
-
-                  // The data for our dataset
+                  type: "line",                  // The data for our dataset
                   data: {
                     labels: [
                       "Week 1",
                       "Week 2",
                       "Week 3",
-                      "Week 4",
-                      "Week 5",
-                      "Week 6",
-                      "Week 7",
-                      "Week 8"
-                      
+                      "Week 4"
                     ],
                     datasets: [{
-                        label: "February",
+                        label: "March",
                         borderColor: "#f5365c",
-                        data: [50, 43, 37, 33, 30, 28, 30, 35, 40, 45, 50, 48]
+                        data: [0, 2, 3, 4]
                       },
                       {
-                        label: "March",
+                        label: "April",
                         //backgroundColor: 'rgb(255, 99, 132)',
                         borderColor: "#11cdef",
-                        data: [20, 35, 30, 35, 37, 39, 43, 40, 38, 40, 25, 40]
+                        data: calls_april
                       }
                     ]
-                  },
-
-                  // Configuration options go here
+                  },                  // Configuration options go here
                   options: {
                     legend: {
                       display: true,
@@ -415,46 +408,30 @@
                       intersect: false,
                       custom: function (model) {
                         // Get tooltip
-                        var $tooltip = $("#chart-tooltip");
-
-                        // Create tooltip on first render
+                        var $tooltip = $("#chart-tooltip");                        // Create tooltip on first render
                         if (!$tooltip.length) {
                           $tooltip = $(
                             '<div id="chart-tooltip" class="popover bs-popover-top" role="tooltip"></div>'
-                          );
-
-                          // Append to body
+                          );                          // Append to body
                           $("body").append($tooltip);
-                        }
-
-                        // Hide if no tooltip
+                        }                        // Hide if no tooltip
                         if (model.opacity === 0) {
                           $tooltip.css("display", "none");
                           return;
-                        }
-
-                        function getBody(bodyItem) {
+                        }                        function getBody(bodyItem) {
                           return bodyItem.lines;
-                        }
-
-                        // Fill with content
+                        }                        // Fill with content
                         if (model.body) {
                           var titleLines = model.title || [];
                           var bodyLines = model.body.map(getBody);
-                          var html = "";
-
-                          // Add arrow
-                          html += '<div class="arrow"></div>';
-
-                          // Add header
+                          var html = "";                          // Add arrow
+                          html += '<div class="arrow"></div>';                          // Add header
                           titleLines.forEach(function (title) {
                             html +=
                               '<h3 class="popover-header text-center">' +
                               title +
                               "</h3>";
-                          });
-
-                          // Add body
+                          });                          // Add body
                           bodyLines.forEach(function (body, i) {
                             var colors = model.labelColors[i];
                             var styles =
@@ -472,29 +449,15 @@
                               indicator +
                               body +
                               "</div>";
-                          });
-
-                          $tooltip.html(html);
-                        }
-
-                        // Get tooltip position
-                        var $canvas = $(this._chart.canvas);
-
-                        var canvasWidth = $canvas.outerWidth();
-                        var canvasHeight = $canvas.outerHeight();
-
-                        var canvasTop = $canvas.offset().top;
-                        var canvasLeft = $canvas.offset().left;
-
-                        var tooltipWidth = $tooltip.outerWidth();
-                        var tooltipHeight = $tooltip.outerHeight();
-
-                        var top =
+                          });                          $tooltip.html(html);
+                        }                        // Get tooltip position
+                        var $canvas = $(this._chart.canvas);                        var canvasWidth = $canvas.outerWidth();
+                        var canvasHeight = $canvas.outerHeight();                        var canvasTop = $canvas.offset().top;
+                        var canvasLeft = $canvas.offset().left;                        var tooltipWidth = $tooltip.outerWidth();
+                        var tooltipHeight = $tooltip.outerHeight();                        var top =
                           canvasTop + model.caretY - tooltipHeight - 16;
                         var left =
-                          canvasLeft + model.caretX - tooltipWidth / 2;
-
-                        // Display tooltip
+                          canvasLeft + model.caretX - tooltipWidth / 2;                        // Display tooltip
                         $tooltip.css({
                           top: top + "px",
                           left: left + "px",
@@ -507,16 +470,12 @@
                           var label =
                             data.datasets[item.datasetIndex].label || "";
                           var yLabel = item.yLabel;
-                          var content = "";
-
-                          if (data.datasets.length > 1) {
+                          var content = "";                          if (data.datasets.length > 1) {
                             content +=
                               '<span class="badge badge-primary mr-auto">' +
                               label +
                               "</span>";
-                          }
-
-                          content +=
+                          }                          content +=
                             '<span class="popover-body-value">' +
                             yLabel +
                             "</span>";
@@ -525,9 +484,14 @@
                       }
                     }
                   }
-                });
-              </script>
-            </div>
+                });                                var firebaseRef = firebase.database().ref();
+                                                // // firebaseRef.child("Test").set("Working1");                                                 var callfreq = firebaseRef.child("Calls");
+                                                 callfreq.on('value', function(snapshot){
+                                                         console.log(snapshot.val());
+                                                         calls_april[3] += 1;
+                                                         chartA.data.datasets[1].data = calls_april;
+                                                         chartA.update(); 
+                                                     });              </script>            </div>
           </div>
           <br>
 
