@@ -3,6 +3,7 @@ from flask import send_file
 from flask import jsonify, request
 from flask import Flask
 from test import push_data
+
 app = Flask(__name__)
 
 
@@ -18,8 +19,9 @@ def dynamic_say_requests():
     return send_file('dynamicsay_requests.json')
 
 
-@app.route('/collect_requests',  methods=['POST'])
+@app.route('/collect_requests', methods=['POST'])
 def collect_requests():
+
 
     memory = json.loads(request.form.get('Memory'))
     print(memory)
