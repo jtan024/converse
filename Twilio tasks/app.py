@@ -1,3 +1,6 @@
+import json
+from flask import send_file
+from flask import jsonify, request
 from flask import Flask
 from test import push_data
 
@@ -9,22 +12,19 @@ def home():
     return 'Hello World!'
 
 
-from flask import send_file
-
-
 @app.route('/dynamicsay_requests', methods=['POST'])
 def dynamic_say_requests():
+    memory = json.loads(request.form.get('Memory'))
+    print(memory)
     return send_file('dynamicsay_requests.json')
-
-
-import json
-from flask import jsonify, request
 
 
 @app.route('/collect_requests', methods=['POST'])
 def collect_requests():
-    memory = json.loads(request.form.get('Memory'))
 
+
+    memory = json.loads(request.form.get('Memory'))
+    print(memory)
     answers = memory['twilio']['collected_data']['collect_clothes_order']['answers']
 
     first_name = answers['first_name']['answer']
